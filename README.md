@@ -3,7 +3,8 @@
 
 ## Arquitetura do projeto
 
-<iframe style="border:none" width="800" height="450" src="https://whimsical.com/embed/6dXeUirwywUpiZugpCGfmy"></iframe>
+![image](https://user-images.githubusercontent.com/64012825/213498708-e675267f-dc36-4999-a189-03b73826a109.png)
+
 
 ## Indice
 - Requisitos minimos 
