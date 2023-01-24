@@ -40,3 +40,12 @@ docker-compose up --build
 - Envia as mensagens filtradas para a ``iAna``
 - Escuta as respostas da ``iAna`` sobre as mensagens enviadas
 - Salva os pedidos e conversas no ``MariaDB`` 
+
+## useCases
+- SendMessage
+- SendImage
+- CheckKeywords
+- CreateChatLog
+- SendNotAnswerNumbers
+- SendToiAna
+- GetiAnaResponse
