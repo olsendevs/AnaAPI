@@ -6,12 +6,7 @@ export class CreateChatLogUseCase {
         private iChatRepository: IChatRepository
     ) {}
     
-    async execute(chatId: string, text: string): Promise<boolean> {
-        const saved_chat = await this.iChatRepository.save(text, chatId);
-        if(saved_chat){
-            return true;
-        } else {
-            return false;
-        }
+    async execute(chatId: string, text: string, response: string): Promise<void> {
+        const saved_chat = await this.iChatRepository.save(text, chatId, response);
     }
 }
