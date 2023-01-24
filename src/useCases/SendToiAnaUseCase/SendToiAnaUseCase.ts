@@ -8,15 +8,21 @@ export class SendToiAnaUseCase {
     async execute(client, message, text: string): Promise<string> {
         let response = "";
 
+        const sendToAna = await this.iAnaProvider.SendMessage(message.from, message.body);
 
-        await client
-        .sendText(message.from, text)
-            .then((result) => {
-                response = "message was sended.";
-            })
-            .catch((erro) => {
-                response = "error trying to send messag: " + erro.message;
-            });
+        if(sendToAna) {
+            const resFromAna = await this.iAnaProvider.GetResponse(message.from, message.body)
+            await client
+            .sendText(message.from, resFromAna)
+                .then((result) => {
+                    response = "message was sended.";
+                })
+                .catch((erro) => {
+                    response = "error trying to send messag: " + erro.message;
+                });
+        }
+
+
         return response;
     }
 }

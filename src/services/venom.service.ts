@@ -1,6 +1,7 @@
 import { checkKeywordsUseCase } from "../useCases/CheckKeywordsUseCase";
 import { sendImageUseCase } from "../useCases/SendImageUseCase";
 import { sendMessageUseCase } from "../useCases/SendMessageUseCase";
+import { sendToiAnaUseCase } from "../useCases/SendToiAnaUseCase";
 
 export default function start(client) {
   client.onMessage(async (message) => {
@@ -16,7 +17,8 @@ export default function start(client) {
         if(haveOrderWords){
             const resOnSedImage = await sendImageUseCase.execute(client, message, "Segue o cardápio", "./wwwroot/img/cardapio.png" , "cardapio")
         } else {
-
+            const resByiAna = await sendToiAnaUseCase.execute(client, message, message.body);
+            console.log(resByiAna);
         }
         // const resOnSendMessage = await sendMessageUseCase.execute(client, message, "olá mundo");
     }
