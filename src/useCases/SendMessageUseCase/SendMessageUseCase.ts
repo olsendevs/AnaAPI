@@ -1,4 +1,4 @@
-import { createChatLogUseCase } from "../CreateChatLogUseCase";
+import { createMessageLogUseCase } from "../CreateMessagesLogUseCase";
 
 export class SendMessageUseCase {
     constructor(
@@ -16,7 +16,7 @@ export class SendMessageUseCase {
                 response = "error trying to send messag: " + erro.message;
             });
 
-        await createChatLogUseCase.execute(message.from, message.body, text);
+        await createMessageLogUseCase.execute(message.from, message.body, text);
 
         return response;
     }

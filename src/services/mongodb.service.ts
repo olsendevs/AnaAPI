@@ -1,7 +1,7 @@
 import * as mongoDB from "mongodb";
 import "dotenv/config";
 
-export const collections: { chats?: mongoDB.Collection } = {}
+export const collections: {  messages?: mongoDB.Collection, contacts?: mongoDB.Collection } = {}
 
 export async function connectToDatabase () {
  
@@ -11,10 +11,12 @@ export async function connectToDatabase () {
         
     const db: mongoDB.Db = client.db(process.env.DB_NAME);
    
-    const classificationCollection: mongoDB.Collection = db.collection(process.env.COLLECTION_NAME);
+    const contactsCollection: mongoDB.Collection = db.collection(process.env.CONTACTS_COLLECTION_NAME);
+    const messageCollection: mongoDB.Collection = db.collection(process.env.MESSAGES_COLLECTION_NAME);
  
-    collections.chats = classificationCollection;
+    collections.messages = messageCollection;
+    collections.contacts = contactsCollection;
        
-         console.log(`Successfully connected to database: ${db.databaseName} and collection: ${classificationCollection.collectionName}`);
+         console.log(`Successfully connected to database: ${db.databaseName}`);
  }
 

@@ -1,5 +1,5 @@
 import { iAnaProvider } from "../../provider/IAnaProvider";
-import { createChatLogUseCase } from "../CreateChatLogUseCase";
+import { createMessageLogUseCase } from "../CreateMessagesLogUseCase";
 
 export class SendToiAnaUseCase {
     constructor(
@@ -21,7 +21,7 @@ export class SendToiAnaUseCase {
                 .catch((erro) => {
                     response = "error trying to send messag: " + erro.message;
                 });
-                await createChatLogUseCase.execute(message.from, message.body, resFromAna);
+                await createMessageLogUseCase.execute(message.from, message.body, resFromAna);
 
         }
 

@@ -1,4 +1,5 @@
 import { checkKeywordsUseCase } from "../useCases/CheckKeywordsUseCase";
+import { saveAllContactsUseCase } from "../useCases/SaveAllContactsUseCase";
 import { sendImageUseCase } from "../useCases/SendImageUseCase";
 import { sendMessageUseCase } from "../useCases/SendMessageUseCase";
 import { sendToiAnaUseCase } from "../useCases/SendToiAnaUseCase";
