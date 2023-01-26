@@ -54,3 +54,4 @@ docker-compose up --build
 - SendRemarketing
 - SaveAllContacts
 - CheckAllChats
+- SendComprovant (Em desenvolvimento)
