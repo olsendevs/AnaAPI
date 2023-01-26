@@ -3,7 +3,7 @@
 
 ## Arquitetura do projeto
 
-![image](https://user-images.githubusercontent.com/64012825/213585183-9c1a63e1-9a6f-4ad0-b095-7c28c7812f8c.png)
+![image](https://user-images.githubusercontent.com/64012825/214751735-1e7e786d-2105-4381-b97e-43b8211c2855.png)
 
 # Indice
 <ul>
