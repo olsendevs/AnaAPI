@@ -1,0 +1,7 @@
+DB_CONN_STRING="mongodb://localhost:27017/?authSource=admin"
+DB_NAME="chat-log"
+CONTACTS_COLLECTION_NAME="contacts"
+MESSAGES_COLLECTION_NAME="messages"
+REMARKETING_TEXT="texto de remarketing."
+BADWORDS_KEYWORDS="caralho, porra, buceta, filha da puta, puta, cacete, pinto, penis, cacete, fuder, fude, fode, foder, sexo, trepar, transar, cu, pau, piroca, arrombado, arrombada, putinha, putona, corno"
+MENU_KEYWORDS="cardápio, cardapio, menu, lista de opções, lista de pratos, lista de refeições, lista de comidas, pratos, sabores, sabor, opções"
