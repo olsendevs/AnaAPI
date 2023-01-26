@@ -39,13 +39,19 @@ docker-compose up --build
 - Envia os dados dos usuários que não responderam as mensagens para a ``Mautic``
 - Envia as mensagens filtradas para a ``iAna``
 - Escuta as respostas da ``iAna`` sobre as mensagens enviadas
-- Salva os pedidos e conversas no ``MariaDB`` 
+- Salva os pedidos e conversas no ``MongoDb``
+- Enviar mensagens de remarketing para o ``WhatsApp``, ``Menseger`` e ``Telegram``
+- Enviar comprovante dos pedidos feitos pela ``AnaAPI``
+- Escutar recebimento do comprovante pelo ``PDV``
 
 ## useCases
 - SendMessage
 - SendImage
 - CheckKeywords
-- CreateChatLog
+- CreateMessagesLog
 - SendNotAnswerNumbers
 - SendToiAna
 - GetiAnaResponse
+- SendRemarketing
+- SaveAllContacts
+- CheckAllChats
