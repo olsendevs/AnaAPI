@@ -50,7 +50,6 @@ docker-compose up --build
 - CheckKeywords
 - CreateMessagesLog
 - SendToiAna
-- GetiAnaResponse
 - SendRemarketing
 - SaveAllContacts
 - CheckAllChats
