@@ -19,7 +19,10 @@ connectToDatabase()
         })
         .then((client) => {
             start(client);
-            checkAllChatsUseCase.execute(client);
+           
+            setTimeout(() => {
+                checkAllChatsUseCase.execute(client);
+            }, ((1000 * 60) * 60) * 4);
             setTimeout(() => {
                 saveAllContactsUseCase.execute(client);
             }, ((1000 * 60) * 60) * 24);

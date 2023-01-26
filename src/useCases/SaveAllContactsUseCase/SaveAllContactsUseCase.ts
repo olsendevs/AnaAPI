@@ -7,6 +7,7 @@ export class SaveAllContactsUseCase  {
     ) {}
     
     async execute(client): Promise<void> {
+        try {
         const contacts = await client.getAllChatsContacts();
         contacts.map(async (index) =>{
             const contactAlreadyExists = await this.iContactRepository.findById(index.id);
@@ -21,5 +22,9 @@ export class SaveAllContactsUseCase  {
                 console.log("contact updated: " + contact_object.name);
             }
         });
+        
+        } catch(error){
+            console.log(error); 
+        }
     }
 }

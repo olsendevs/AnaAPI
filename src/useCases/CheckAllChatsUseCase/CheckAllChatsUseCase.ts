@@ -10,11 +10,15 @@ export class CheckAllChatsUseCase  {
     async execute(client): Promise<void> {
         const contacts = await this.iContactRepository.listAll();
         contacts.map(async (contact) =>{
+            try{
                 const chat = await client.getAllMessagesInChat(contact.id._serialized);
             
                 if(chat[chat.length - 1].sender.isMe && chat[chat.length - 1].body != process.env.REMARKETING_TEXT){
                     sendRemarketingUseCase.execute(client, contact.id._serialized);
                 }
+            }catch(error){
+                console.log(error);
+            }
         });
     }
 }
