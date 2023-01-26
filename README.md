@@ -49,7 +49,6 @@ docker-compose up --build
 - SendImage
 - CheckKeywords
 - CreateMessagesLog
-- SendNotAnswerNumbers
 - SendToiAna
 - GetiAnaResponse
 - SendRemarketing
