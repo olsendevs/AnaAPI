@@ -7,4 +7,4 @@ const sendToiAnaUseCase = new SendToiAnaUseCase(
     anaProvider
 );
 
-export { sendToiAnaUseCase  }
+export { sendToiAnaUseCase }

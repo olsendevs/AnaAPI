@@ -14,7 +14,7 @@ export class CheckAllChatsUseCase  {
                 const chat = await client.getAllMessagesInChat(contact.id._serialized);
             
                 if(chat[chat.length - 1].sender.isMe && chat[chat.length - 1].body != process.env.REMARKETING_TEXT){
-                    sendRemarketingUseCase.execute(client, contact.id._serialized);
+                    sendRemarketingUseCase.execute(client, contact);
                 }
             }catch(error){
                 console.log(error);

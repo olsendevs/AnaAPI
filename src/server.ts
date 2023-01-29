@@ -1,8 +1,12 @@
+import checkAllChatsThread from "./Threads/CheckAllChatsThread";
+import getVouchersFromPdvThread from "./Threads/GetVouchersFromPdvThread";
+import saveAllContactsThread from "./Threads/SaveAllContactsThread";
 import { app } from "./app";
 import { errorMiddleware } from "./middlewares/error";
 import { connectToDatabase } from "./services/mongodb.service";
 import start from "./services/venom.service";
 import { checkAllChatsUseCase } from "./useCases/CheckAllChatsUseCase";
+import { getVouchersFromPdvUseCase } from "./useCases/GetVouchersFromPdvUseCase";
 import { saveAllContactsUseCase } from "./useCases/SaveAllContactsUseCase";
 
 app.use(errorMiddleware);
@@ -19,13 +23,13 @@ connectToDatabase()
         })
         .then((client) => {
             start(client);
-           
-            setTimeout(() => {
-                checkAllChatsUseCase.execute(client);
-            }, ((1000 * 60) * 60) * 4);
-            setTimeout(() => {
-                saveAllContactsUseCase.execute(client);
-            }, ((1000 * 60) * 60) * 24);
+
+            getVouchersFromPdvThread(client);
+
+            checkAllChatsThread(client);
+
+            saveAllContactsThread(client);
+
         })
         .catch((erro) => {
             console.log(erro);
@@ -41,3 +45,6 @@ connectToDatabase()
         console.error("Database connection failed", error);
         process.exit();
     });
+
+
+
