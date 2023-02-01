@@ -1,10 +1,11 @@
+import { MauticProvider } from "../../provider/implementations/MauticProvider";
 import { ContactRepository } from "../../repositories/implementations/ContactRepository";
 import { SendRemarketingUseCase } from "./SendRemarketingUseCase";
 
-const contactRepository = new ContactRepository();
+const mauticProvider = new MauticProvider();
 
 const sendRemarketingUseCase = new SendRemarketingUseCase(
-    contactRepository
+    mauticProvider
 );
 
 export { sendRemarketingUseCase }

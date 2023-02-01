@@ -1,6 +1,6 @@
-import checkAllChatsThread from "./Threads/CheckAllChatsThread";
-import getVouchersFromPdvThread from "./Threads/GetVouchersFromPdvThread";
-import saveAllContactsThread from "./Threads/SaveAllContactsThread";
+import checkAllChatsThread from "./Cronjobs/CheckAllChatsThread";
+import getVouchersFromPdvThread from "./Cronjobs/GetVouchersFromPdvThread";
+import saveAllContactsThread from "./Cronjobs/SaveAllContactsThread";
 import { app } from "./app";
 import { errorMiddleware } from "./middlewares/error";
 import { connectToDatabase } from "./services/mongodb.service";
@@ -24,11 +24,20 @@ connectToDatabase()
         .then((client) => {
             start(client);
 
-            getVouchersFromPdvThread(client);
+            const cron = require("node-cron");
 
-            checkAllChatsThread(client);
+            cron.schedule("0 0 * * *", () => {
+                saveAllContactsThread(client);
+            });
 
-            saveAllContactsThread(client);
+            cron.schedule("0 */4 * * *", () => {
+                checkAllChatsThread(client);
+            });
+
+            cron.schedule("*/30 * * * * *", () => {
+                getVouchersFromPdvThread(client);
+            });
+            
 
         })
         .catch((erro) => {
